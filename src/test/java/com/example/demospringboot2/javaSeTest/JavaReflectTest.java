@@ -23,7 +23,7 @@ public class JavaReflectTest {
             Dog dog = (Dog) dogClass.newInstance();
             for (Method method : methods){
                 int modifiers = method.getModifiers();
-                if (modifiers <= Modifier.PUBLIC){
+                if (Modifier.isPublic(modifiers)){
                     method.invoke(dog);
                 }
 
