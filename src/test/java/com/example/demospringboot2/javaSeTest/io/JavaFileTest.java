@@ -28,7 +28,8 @@ public class JavaFileTest {
     @Test
     public void test(){
 
-        String path = "C:\\Users\\lovelin\\Desktop";
+        String path = "C:\\" +
+                "Users\\lovelin\\Desktop";
         String name = "fileTest.txt";
         String dir = "zeng";
         //读取文件
