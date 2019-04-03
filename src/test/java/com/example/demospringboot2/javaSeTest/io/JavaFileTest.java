@@ -2,8 +2,8 @@ package com.example.demospringboot2.javaSeTest.io;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.FileSystem;
 
 /**
  * @Title: 文件
@@ -12,6 +12,18 @@ import java.io.IOException;
  * @CreateTime: 2019/4/1$ 23:39$
  */
 public class JavaFileTest {
+
+    @Test
+    public void testFileSystem(){
+        //读取文件
+        File file = new File("");
+        try {
+            InputStream in = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Test
     public void test(){
