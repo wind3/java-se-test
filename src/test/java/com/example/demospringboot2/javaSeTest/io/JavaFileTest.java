@@ -14,13 +14,74 @@ import java.nio.file.FileSystem;
 public class JavaFileTest {
 
     @Test
-    public void testFileSystem(){
+    public void testFileIO() throws IOException {
+        String path = "C:\\" +
+                "Users\\lovelin\\Desktop\\test.txt";
+
+        String outPath = "C:\\" +
+                "Users\\lovelin\\Desktop\\test-out.txt";
         //读取文件
-        File file = new File("");
+        File file = new File(path);
+        InputStream in = null;
+
+        //输出文件
+        File outFile = new File(outPath);
+        OutputStream out = new BufferedOutputStream( new FileOutputStream(outFile));
         try {
-            InputStream in = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
+            //缓冲输入流，过程：先将文件读取到缓冲
+            in = new BufferedInputStream(new  FileInputStream(file));
+            //临时数据区，作为输入流、输出流的中转站，必须要有
+            byte[] b = new byte[1024];
+            int length = 0;
+            while ((length = in.read(b)) != -1){
+                //将临时数据区b的数据，写到输出流的缓冲区
+                out.write(b,0,length);
+                //将ascii码值为100的字符写到文件
+              //  out.write(100);
+            }
+
+        } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            if ( in != null){
+                in.close();
+            }
+            if (out != null){
+                //输出流关闭时，自动flush，将缓冲区的数据刷新到磁盘文件
+                out.close();
+            }
+        }
+    }
+
+    @Test
+    public void testFileSystem() throws IOException {
+        String path = "C:\\" +
+                "Users\\lovelin\\Desktop\\test.txt";
+
+        String outPath = "C:\\" +
+                "Users\\lovelin\\Desktop\\test-out.txt";
+        //读取文件
+        File file = new File(path);
+        File outFile = new File(outPath);
+        InputStream in = null;
+        OutputStream out =  new FileOutputStream(outFile);
+        try {
+            in = new FileInputStream(file);
+            byte[] b = new byte[1024];
+            while(in.read(b) != -1){
+                out.write(b);
+                System.out.println(new String(b));
+            }
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if ( in != null){
+                in.close();
+            }
+            if (out != null){
+                out.close();
+            }
         }
     }
 
