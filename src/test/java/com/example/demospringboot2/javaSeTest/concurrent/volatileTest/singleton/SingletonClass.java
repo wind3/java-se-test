@@ -23,4 +23,8 @@ public class SingletonClass {
 
         return  instance;
     }
+
+     public static void main(String[] args){
+        getInstance();
+    }
 }

@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class JavaVolatileTest {
 
-    @Test
+/*    @Test
     public void test(){
 
         for (int i = 0 ; i < 100; i++){
@@ -33,13 +33,18 @@ public class JavaVolatileTest {
         WorkStateThread workStateThread2 = new WorkStateThread();
         workStateThread.start();
         workStateThread2.start();
-    }
+    }*/
 
     @Test
     public void test2(){
-        for (int i = 0 ; i < 10 ; i++){
+       /* for (int i = 0 ; i < 10 ; i++){
             ASingleTonThread thread = new ASingleTonThread();
             thread.start();
-        }
+        }*/
+       SingletonClass obj = new SingletonClass();
     }
+
+
+
+
 }
