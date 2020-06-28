@@ -3,7 +3,6 @@ package com.example.demospringboot2.javaSeTest.io;
 import org.junit.Test;
 
 import java.io.*;
-import java.nio.file.FileSystem;
 
 /**
  * @Title: 文件
@@ -22,11 +21,11 @@ public class JavaFileTest {
                 "Users\\lovelin\\Desktop\\test-out.txt";
         //读取文件
         File file = new File(path);
-        InputStream in = null;
+        BufferedInputStream in = null;
 
         //输出文件
         File outFile = new File(outPath);
-        OutputStream out = new BufferedOutputStream( new FileOutputStream(outFile));
+        BufferedOutputStream out = new BufferedOutputStream( new FileOutputStream(outFile));
         try {
             //缓冲输入流，过程：先将文件读取到缓冲
             in = new BufferedInputStream(new  FileInputStream(file));

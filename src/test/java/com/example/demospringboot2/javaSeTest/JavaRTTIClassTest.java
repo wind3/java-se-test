@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * @Title: 运行时类型信息测试
@@ -76,6 +77,16 @@ public class JavaRTTIClassTest {
         }
 
         /**
+         * 获取所有声明的属性，包括私有属性
+         */
+        Field[] declaredFields = clazz.getDeclaredFields();
+        if (declaredFields != null){
+            for (Field f : declaredFields) {
+                System.out.println(f.getName());
+            }
+        }
+
+        /**
          * 获得所有有权限访问的方法数组，包括Object的方法
          */
         Method[] methods = clazz.getMethods();
@@ -91,9 +102,17 @@ public class JavaRTTIClassTest {
         if (methods1 != null){
             for (Method f : methods1) {
                 System.out.println(f.getName());
+                //获取方法的修饰符编码
+                int modifiers = f.getModifiers();
+                boolean aPublic = Modifier.isPublic(modifiers);
+                //获取方法的参数
+                Class<?>[] parameterTypes = f.getParameterTypes();
+                for (Class c : parameterTypes){
+                    System.out.println(c.getName());
+                }
+
             }
         }
-
         /**
          * 获得所有该类使用的注解
          */
@@ -103,6 +122,10 @@ public class JavaRTTIClassTest {
                 System.out.println(f.toString());
             }
         }
+
+        /**
+         * 获取所有构造函数
+         */
 
     }
 

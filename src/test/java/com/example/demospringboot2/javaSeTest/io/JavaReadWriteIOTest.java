@@ -35,4 +35,29 @@ public class JavaReadWriteIOTest {
         int c = reader.read();
         System.out.println((char)c);
     }
+
+
+    @Test
+    public void writeTest(){
+        String path = "C:\\" +
+                "Users\\lovelin\\Desktop\\test.txt";
+
+        String outPath = "C:\\" +
+                "Users\\lovelin\\Desktop\\test-out.txt";
+
+        try {
+            Reader reader = new BufferedReader(new FileReader(path)) ;
+            char[] buffer = new char[1024];
+            Writer writer = new BufferedWriter(new FileWriter(outPath));
+            while (reader.read(buffer) != -1){
+                writer.write(buffer);
+            }
+            writer.flush();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
