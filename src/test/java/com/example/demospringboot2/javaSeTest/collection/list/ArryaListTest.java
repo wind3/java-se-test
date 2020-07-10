@@ -1,9 +1,9 @@
 package com.example.demospringboot2.javaSeTest.collection.list;
 
 import org.junit.Test;
+import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Title: TODO
@@ -20,6 +20,11 @@ public class ArryaListTest extends RuntimeException{
         set.add("a");
         set.add("z");
         set.add("d");
+        Collections.emptyMap();
+//        CollectionUtils.class
+
+        List<String> strings = Arrays.asList(arr);
+//        List<String> arrayList = new ArrayList<String>(arr);
 
 
 //      遗留接口  可将 可枚举对象（被Iterable替代） 转为 list，

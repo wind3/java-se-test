@@ -2,6 +2,7 @@ package com.example.demospringboot2.javaSeTest.basicType;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * @description:
@@ -14,6 +15,8 @@ import java.util.Date;
 public class DateTest {
 
     public static void main(String[] args) {
+//        TimeZone.setDefault(TimeZone.getTimeZone("CST"));
+        TimeZone.setDefault(TimeZone.getTimeZone("CTT"));
         Date date = new Date();
         LocalDateTime now = LocalDateTime.now();
         System.out.println(now);
