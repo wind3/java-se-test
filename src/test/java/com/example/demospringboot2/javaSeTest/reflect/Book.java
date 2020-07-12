@@ -1,10 +1,8 @@
 package com.example.demospringboot2.javaSeTest.reflect;
 
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
-@Data
-@Slf4j
+@Service
 public class Book {
 
     private String name;

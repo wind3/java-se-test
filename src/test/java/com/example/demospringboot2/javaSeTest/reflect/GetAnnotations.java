@@ -4,6 +4,7 @@ import lombok.Data;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 
 /**
  * 从反射类型信息中，获取 注解信息
@@ -29,6 +30,8 @@ public class GetAnnotations {
         Data data = bookClass.getDeclaredAnnotation(Data.class);
 
         Annotation[] clazzAnnotations = bookClazz.getAnnotations();
+
+        Field[] fields = bookClass.getFields();
 
         System.out.println(annotations);
     }
